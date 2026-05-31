@@ -1,5 +1,22 @@
-import { useState } from 'react'
+import { MessageContainer } from "./components/MessageContainer";
+import { useMessages } from "./hooks/useMessages";
+import { useSendMessage } from "./hooks/useSendMessage";
+import { CURRENT_AUTHOR } from "./utils/constants";
 
-function App() { return ( <div> <h1>Frontend Chat Challenge</h1> </div> ); }
+function App() {
+  const { messages, setMessages, isLoading, error } = useMessages();
+  const { send, isSending } = useSendMessage(setMessages);
 
-export default App
+  return (
+    <MessageContainer
+      messages={messages}
+      author={CURRENT_AUTHOR}
+      onSend={send}
+      isLoading={isLoading}
+      isSending={isSending}
+      error={error}
+    />
+  );
+}
+
+export default App;

@@ -1,3 +1,4 @@
+import type { Message } from "../types/message";
 import { apiAxiosClient } from "./client";
 
 // API interceptor for error/response handling, authentication refresh, logging
@@ -8,13 +9,6 @@ apiAxiosClient.interceptors.response.use(
         return Promise.reject(error);
     }
 );
-
-export interface Message {
-    id: string;
-    author: string;
-    message: string;
-    createdAt: string;
-}
 
 // API Call to get the messages
 export const getMessages = async (nextMsg: string, limit: number): Promise<Message[]> => {
