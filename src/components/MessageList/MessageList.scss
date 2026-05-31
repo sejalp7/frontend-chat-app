@@ -1,0 +1,28 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.message-list {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  @include chat-doodle-background;
+}
+
+.message-list-items {
+  @include flex-column(0.75rem);
+  padding: $space-xl $space-lg $space-lg;
+  min-height: 100%;
+}
+
+.message-list-status {
+  @include status-text;
+}
+
+.message-list-error {
+  @include status-text($color-text-error);
+}
+
+.message-list-anchor {
+  height: 1px;
+  flex-shrink: 0;
+}

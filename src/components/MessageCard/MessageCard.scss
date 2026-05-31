@@ -1,0 +1,56 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.message-card {
+  @include message-bubble-base;
+}
+
+.message-card-other {
+  align-self: flex-start;
+  max-width: min(40%, $bubble-max-width-other);
+  background: $color-bg-white;
+}
+
+.message-card-own {
+  align-self: flex-end;
+  max-width: min(72%, $bubble-max-width-own);
+  background: $color-bg-own-bubble;
+}
+
+.message-card-author {
+  @include reset-margin;
+  font-size: $font-size-xs;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: $color-text-secondary;
+  text-transform: uppercase;
+}
+
+.message-card-text {
+  @include reset-margin;
+  font-size: $font-size-message;
+  color: $color-text-primary;
+}
+
+.message-card-time {
+  font-size: $font-size-time;
+  color: $color-text-muted;
+}
+
+.message-card-other .message-card-time {
+  align-self: flex-start;
+}
+
+.message-card-own .message-card-time {
+  align-self: flex-end;
+}
+
+@include respond-below($breakpoint-mobile) {
+  .message-card-other {
+    max-width: 85%;
+  }
+
+  .message-card-own {
+    max-width: 90%;
+  }
+}

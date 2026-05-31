@@ -1,0 +1,43 @@
+// Colors
+$color-text-primary: #1a1a1a;
+$color-text-muted: #9a9a9a;
+$color-text-secondary: #8a8a8a;
+$color-text-status: #666;
+$color-text-error: #b42318;
+$color-placeholder: #b0b0b0;
+
+$color-border: #d4d4d4;
+$color-bg-page: #f5f5f5;
+$color-bg-chat: #e8e4df;
+$color-bg-white: #ffffff;
+$color-bg-own-bubble: #fef9c3;
+
+$color-input-bar: #3498db;
+$color-send-button: #ff8a65;
+$color-send-button-hover: #f57c55;
+
+// Typography
+$font-family-base: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica,
+  Arial, sans-serif;
+$font-size-base: 1rem;
+$font-size-sm: 0.9rem;
+$font-size-xs: 0.75rem;
+$font-size-time: 0.7rem;
+$font-size-message: 0.95rem;
+$line-height-message: 1.45;
+
+// Layout
+$chat-max-width: 960px;
+$radius-sm: 4px;
+$shadow-container: 0 0 24px rgba(0, 0, 0, 0.08);
+
+$bubble-max-width-other: 22rem;
+$bubble-max-width-own: 36rem;
+$breakpoint-mobile: 640px;
+
+// Spacing
+$space-xs: 0.35rem;
+$space-sm: 0.65rem;
+$space-md: 0.85rem;
+$space-lg: 1rem;
+$space-xl: 1.25rem;

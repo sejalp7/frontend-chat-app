@@ -1,0 +1,25 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.message-input-bar {
+  @include flex-row(center, 0.65rem);
+  padding: 0.85rem $space-lg;
+  background: $color-input-bar;
+  flex-shrink: 0;
+}
+
+.message-input-bar-label {
+  @include visually-hidden;
+}
+
+.message-input-bar-input {
+  @include text-input;
+}
+
+.message-input-bar-button {
+  @include button-primary;
+  flex-shrink: 0;
+  padding: $space-sm 1.35rem;
+  border-radius: $radius-sm;
+  font-size: $font-size-base;
+}
