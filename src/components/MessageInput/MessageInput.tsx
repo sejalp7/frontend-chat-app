@@ -1,12 +1,13 @@
-import { useState, type FormEvent } from "react";
+import { memo, useState, type FormEvent } from "react";
 import { USER_MESSAGES } from "../../utils/constants";
+import "./MessageInput.scss";
 
 type MessageInputProps = {
   onSend: (text: string) => void;
   disabled?: boolean;
 };
 
-export function MessageInput({ onSend, disabled }: MessageInputProps) {
+function MessageInputComponent({ onSend, disabled }: MessageInputProps) {
   const [text, setText] = useState("");
 
   const handleSubmit = (event: FormEvent) => {
@@ -30,7 +31,7 @@ export function MessageInput({ onSend, disabled }: MessageInputProps) {
       </label>
       <input
         id="message-input"
-        className="chat-input-bar-input"
+        className="message-input-bar-input"
         type="text"
         placeholder={USER_MESSAGES.MESSAGE_INPUT_PLACEHOLDER}
         value={text}
@@ -39,7 +40,7 @@ export function MessageInput({ onSend, disabled }: MessageInputProps) {
         autoComplete="off"
       />
       <button
-        className="chat-input-bar-button"
+        className="message-input-bar-button"
         type="submit"
         disabled={disabled || !text.trim()}
       >
@@ -48,3 +49,5 @@ export function MessageInput({ onSend, disabled }: MessageInputProps) {
     </form>
   );
 }
+
+export const MessageInput = memo(MessageInputComponent);
