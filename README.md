@@ -1,73 +1,128 @@
-# React + TypeScript + Vite
+# Chat Frontend Challenge
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+This project is a frontend implementation of a simple chat application built using **React + TypeScript + Vite**. It interacts with a backend API to fetch and send messages in real time.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+The goal of this project is to demonstrate:
 
-## React Compiler
+* Clean React architecture
+* API integration
+* State management
+* Responsive UI design
+* Accessibility and performance considerations
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+* React
+* TypeScript
+* Vite
+* Axios (API calls)
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Features
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+* Fetch messages from backend API
+* Display messages in reverse chronological order
+* Send new messages
+* Optimistic UI updates
+* Loading and error states
+* Responsive design (mobile + desktop)
+* Accessible UI structure
+
+---
+
+## API Integration
+
+All endpoints require a Bearer token.
+
+### Get Messages
+
+```
+GET /api/v1/messages
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Supports pagination:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
 ```
+GET /api/v1/messages?after=<timestamp>&limit=10
+```
+
+### Send Message
+
+```
+POST /api/v1/messages
+```
+
+Example payload:
+
+```json
+{
+  "message": "Hello world",
+  "author": "Sejal Pande"
+}
+```
+
+---
+å
+## Setup Instructions
+
+### Install dependencies
+
+```
+npm install
+```
+
+### Run development server
+
+```
+npm run dev
+```
+
+### Build for production
+
+```
+npm run build
+```
+
+---
+
+## Project Structure
+
+```
+src/
+├── api/
+├── components/
+├── hooks/
+├── types/
+├── styles/
+├── App.tsx
+├── utils/
+└── main.tsx
+```
+
+---
+
+## Design Decisions
+
+* Implemented optimistic updates for better UX during message sending
+* Kept component structure modular for maintainability
+* Focused on responsive and accessible UI from the start
+
+---
+
+## Future Improvements
+
+If more time was available:
+
+* Add message virtualization for large datasets
+* Add user authentication
+* Add message grouping by date
+
+---
+
+## Author
+Sejal P.
