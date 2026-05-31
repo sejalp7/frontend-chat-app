@@ -1,7 +1,9 @@
 /** User-facing copy for the chat UI. */
 export const USER_MESSAGES = {
   LOADING_MESSAGES: "Loading messages…",
+  EMPTY_MESSAGES: "No messages yet",
   ERROR_LOAD_MESSAGES: "Could not load messages.",
+  RETRY_BUTTON: "Retry",
   CHAT_MESSAGES_ARIA_LABEL: "Chat messages",
   SEND_MESSAGE_FORM_ARIA_LABEL: "Send a message",
   MESSAGE_INPUT_LABEL: "Message",

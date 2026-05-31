@@ -11,18 +11,106 @@
 .message-list-items {
   @include flex-column(0.75rem);
   padding: $space-xl $space-lg $space-lg;
+  min-height: min-content;
+}
+
+.message-list-feedback {
+  @include flex-column(0.75rem);
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+  padding: $space-xl $space-lg;
+  text-align: center;
+}
+
+.message-list-feedback-text {
+  @include reset-margin;
+  font-size: $font-size-sm;
+  color: $color-text-status;
+}
+
+.message-list-feedback-empty .message-list-feedback-text {
+  font-size: $font-size-base;
+  color: $color-text-secondary;
+}
+
+.message-list-feedback-error .message-list-feedback-text {
+  color: $color-text-error;
+}
+
+.message-list-feedback-detail {
+  display: block;
+  margin-top: $space-xs;
+  font-size: $font-size-xs;
+  color: $color-text-status;
+}
+
+.message-list-retry-button {
+  @include button-reset;
+  padding: $space-sm $space-lg;
+  border-radius: $radius-sm;
+  font-size: $font-size-sm;
+  font-weight: 500;
+  color: $color-bg-white;
+  background: $color-input-bar;
+
+  &:hover {
+    filter: brightness(0.95);
+  }
+
+  &:focus-visible {
+    @include focus-ring($color-input-bar, 2px);
+  }
+}
+
+// Skeleton
+.message-list-skeleton {
+  @include flex-column(0.75rem);
+  padding: $space-xl $space-lg $space-lg;
   min-height: 100%;
 }
 
-.message-list-status {
-  @include status-text;
+.message-list-skeleton-card {
+  @include flex-column($space-xs);
+  padding: $space-sm $space-md;
+  border: 1px solid transparent;
+  border-radius: $radius-sm;
 }
 
-.message-list-error {
-  @include status-text($color-text-error);
+.message-list-skeleton-card-other {
+  align-self: flex-start;
+  max-width: 70%;
+  background: rgba($color-bg-white, 0.85);
 }
 
-.message-list-anchor {
-  height: 1px;
-  flex-shrink: 0;
+.message-list-skeleton-card-own {
+  align-self: flex-end;
+  max-width: 75%;
+  background: rgba($color-bg-own-bubble, 0.9);
+}
+
+.message-list-skeleton-line {
+  @include skeleton-shimmer;
+  border-radius: 3px;
+  height: 0.65rem;
+}
+
+.message-list-skeleton-line-author {
+  width: 28%;
+  height: 0.5rem;
+}
+
+.message-list-skeleton-line-body {
+  width: 100%;
+  height: 0.85rem;
+}
+
+.message-list-skeleton-line-time {
+  width: 35%;
+  height: 0.45rem;
+  align-self: flex-end;
+}
+
+.message-list-skeleton-card-other .message-list-card-line-time {
+  align-self: flex-start;
 }
