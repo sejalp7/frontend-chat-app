@@ -28,6 +28,7 @@ function MessageListComponent({
     !isLoading && !error && messages.length === 0;
   const showMessages = messages.length > 0;
 
+  // function to always keep the scrollbar to yhe bottom showing the latest message
   const scrollToBottom = useCallback((behavior: ScrollBehavior) => {
     const node = listRef.current;
     if (!node) {
@@ -62,6 +63,7 @@ function MessageListComponent({
               <span className="message-list-feedback-detail"> {error.message}</span>
             )}
           </p>
+          {/* if the data fetch fails, the button will trigger a retry */}
           {onRetry && (
             <button
               type="button"
